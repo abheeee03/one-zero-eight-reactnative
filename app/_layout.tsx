@@ -1,39 +1,51 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import { Tabs } from 'expo-router';
+import { FontAwesome5 } from '@expo/vector-icons';
 
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
-
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-
+export default function AppLayout() {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <Tabs
+      screenOptions={{
+        headerShown: false,
+        tabBarActiveTintColor: '#007AFF',
+        tabBarStyle: {
+          borderTopWidth: 1,
+          borderTopColor: '#ddd',
+          backgroundColor: '#fff',
+        },
+      }}
+    >
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Emergency',
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name="ambulance" size={24} color={color} />
+          ),
+          headerTitle: 'Emergency Services',
+        }}
+      />
+      <Tabs.Screen
+        name="home"
+        options={{
+          href: null, // Hide this tab but keep the route
+        }}
+      />
+      <Tabs.Screen
+        name="map"
+        options={{
+          href: null, // Hide this tab but keep the route
+        }}
+      />
+      <Tabs.Screen
+        name="account"
+        options={{
+          title: 'Account',
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name="user" size={24} color={color} />
+          ),
+          headerTitle: 'My Account',
+        }}
+      />
+    </Tabs>
   );
 }
