@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "108-SMART-AD",
+    "name": "108 Smart Ambulance",
     "slug": "108-SMART-AD",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -15,6 +15,18 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "package": "com.smartambulance.app",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "YOUR_GOOGLE_MAPS_API_KEY"
+        }
       }
     },
     "web": {
@@ -24,6 +36,12 @@
     },
     "plugins": [
       "expo-router",
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermission": "Allow 108 Smart Ambulance to use your location."
+        }
+      ],
       [
         "expo-splash-screen",
         {
@@ -36,6 +54,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "20813d22-9be6-4095-b119-9cd592385159"
+      }
     }
   }
 }
