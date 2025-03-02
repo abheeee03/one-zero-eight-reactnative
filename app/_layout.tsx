@@ -6,7 +6,7 @@ export default function AppLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: '#007AFF',
+        tabBarActiveTintColor: 'red',
         tabBarStyle: {
           borderTopWidth: 1,
           borderTopColor: '#ddd',
@@ -17,14 +17,14 @@ export default function AppLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Emergency',
+          title: 'Home',
           tabBarIcon: ({ color }) => (
             <FontAwesome5 name="ambulance" size={24} color={color} />
           ),
           headerTitle: 'Emergency Services',
         }}
       />
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="home"
         options={{
           href: null, // Hide this tab but keep the route
@@ -35,7 +35,7 @@ export default function AppLayout() {
         options={{
           href: null, // Hide this tab but keep the route
         }}
-      />
+      /> */}
       <Tabs.Screen
         name="account"
         options={{

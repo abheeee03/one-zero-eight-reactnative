@@ -41,12 +41,13 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
+      <Text style={{fontSize: 25, textAlign: 'center', marginBlock: 10}}>Having an Emergency?</Text>
         <TouchableOpacity
           style={[styles.button, styles.emBtn]}
           onPress={handleCallAmbulance}
         >
-          <FontAwesome5 name="ambulance" size={24} color="red" />
-          <Text style={[styles.buttonText, styles.emBtnText]}>Call Nearest {'\n'} Ambulance</Text>
+          <FontAwesome5 name="ambulance" size={24} color="white" />
+          <Text style={[styles.buttonText, styles.emBtnText]}>Call Nearest {'\n'} Ambulance {'\n'}ASAP!</Text>
         </TouchableOpacity>
 
         <TouchableOpacity
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     justifyContent: 'center',
-    backgroundColor: 'red',
+    backgroundColor: 'white',
     gap: 20,
   },
   button: {
@@ -76,13 +77,14 @@ const styles = StyleSheet.create({
   },
   emBtn:{
     left: 90,
-    backgroundColor: 'white',
+    backgroundColor: 'red',
     height: 200,
     width: 200,
     borderRadius: 200/2,
   },
   emBtnText:{
-    color: 'red',
+    textAlign: "center",
+    color: 'white',
   },
   findButton: {
     backgroundColor: '#007AFF',
